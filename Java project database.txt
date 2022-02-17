@@ -1,0 +1,11 @@
+CREATE DATABASE cities;
+
+cities=# CREATE TABLE city(
+cities(# id BIGSERIAL NOT NULL,
+cities(# name VARCHAR (40) NOT NULL,
+cities(# m_amount integer NOT NULL,
+cities(# w_amount integer NOT NULL,
+cities(# lvl integer,
+cities(# region varchar(40) NOT NULL,
+cities(# caranteen BOOLEAN,
+cities(# caranteen_date DATE);
