@@ -21,16 +21,17 @@ public class CityRepository implements ICityRepository {
         Connection con = null;                          //create variable of connection
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO city(id,name,headcount,region,x,y,product,amount,type) VALUES (?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
+            String sql = "INSERT INTO citylist(id,name,headcount,region,x,y,product,amount,type) VALUES (?,?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, locality.getId());
             st.setString(2, locality.getName());
             st.setInt(3, locality.getHeadcount());
-            st.setDouble(4, locality.getX());
-            st.setDouble(5,locality.getY());
-            st.setString(6, "Nothing");
-            st.setInt(7, 0);
-            st.setBoolean(8, false);
+            st.setString(4,locality.getRegion());
+            st.setDouble(5, locality.getX());
+            st.setDouble(6,locality.getY());
+            st.setString(7, "Nothing");
+            st.setInt(8, 0);
+            st.setBoolean(9, false);
             st.execute();
             return true;
         } catch (SQLException throwables) {
@@ -52,16 +53,17 @@ public class CityRepository implements ICityRepository {
         Connection con = null;                          //create variable of connection
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO city(id,name,headcount,region,x,y,product,amount,type) VALUES (?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
+            String sql = "INSERT INTO citylist(id,name,headcount,region,x,y,product,amount,type) VALUES (?,?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, locality.getId());
             st.setString(2, locality.getName());
             st.setInt(3, locality.getHeadcount());
-            st.setDouble(4, locality.getX());
-            st.setDouble(5,locality.getY());
-            st.setString(6, locality.getProduct());
-            st.setInt(7, locality.getAmount());
-            st.setBoolean(8, true);
+            st.setString(4,locality.getRegion());
+            st.setDouble(5, locality.getX());
+            st.setDouble(6,locality.getY());
+            st.setString(7, locality.getProduct());
+            st.setInt(8, locality.getAmount());
+            st.setBoolean(9, true);
             st.execute();
             return true;
         } catch (SQLException throwables) {
@@ -83,7 +85,7 @@ public class CityRepository implements ICityRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,headcount,region,x,y FROM users WHERE id=?";
+            String sql = "SELECT id,name,headcount,region,x,y FROM citylist WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setInt(1, id);
@@ -118,7 +120,7 @@ public class CityRepository implements ICityRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,headcount,region,x,y FROM users WHERE name=?";
+            String sql = "SELECT id,name,headcount,region,x,y FROM citylist WHERE name=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, name);
@@ -153,7 +155,7 @@ public class CityRepository implements ICityRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,headcount,region,x,y FROM users";
+            String sql = "SELECT id,name,headcount,region,x,y FROM citylist";
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);
@@ -189,7 +191,7 @@ public class CityRepository implements ICityRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,headcount,region,x,y,product,amount FROM users WHERE type=true";
+            String sql = "SELECT id,name,headcount,region,x,y,product,amount FROM citylist WHERE type=true";
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);
