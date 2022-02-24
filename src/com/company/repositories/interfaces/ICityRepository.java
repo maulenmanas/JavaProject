@@ -18,4 +18,8 @@ public interface ICityRepository {
     int getIdByName(String name);
 
     String getNameById(int id);
+
+    double getDistance(String name1, String name2);
+
+    List<String> headCountFilter(String sign, int value);
 }
