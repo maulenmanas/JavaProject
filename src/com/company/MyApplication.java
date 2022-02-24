@@ -73,9 +73,9 @@ public class MyApplication {
         System.out.println("Please enter region");
         String region = scanner.next();
         System.out.println("Please enter longitude");
-        Double x = scanner.nextDouble();
+        double x = scanner.nextDouble();
         System.out.println("Please enter latitude");
-        Double y = scanner.nextDouble();
+        double y = scanner.nextDouble();
         String response = controller.createCity(id, name, headcount, region, x, y);
         System.out.println(response);
     }
