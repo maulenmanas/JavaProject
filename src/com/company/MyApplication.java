@@ -20,20 +20,23 @@ public class MyApplication {
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
-            System.out.println("1. Get all users");
-            System.out.println("2. Get user by id");
-            System.out.println("3. Create user");
+            System.out.println("1. Get all cities");
+            System.out.println("2. Get city by attribute");
+            System.out.println("3. Create city");
+            System.out.println("4. Get all industrial cities");
             System.out.println("0. Exit");
             System.out.println();
             try {
-                System.out.print("Enter option (1-3): ");
+                System.out.print("Enter option (1-4): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
                     getAllCitiesMenu();
                 } else if (option == 2) {
-                    getCityByIdMenu();
+                    getCityByAtributeMenu();
                 } else if (option == 3) {
                     createCityMenu();
+                }else if (option == 4) {
+                    getAllICitiesMenu();
                 } else {
                     break;
                 }
@@ -50,18 +53,53 @@ public class MyApplication {
         }
     }
 
+    private void getCityByAtributeMenu() {
+        System.out.println("Enter atribute");
+        System.out.println("1. id");
+        System.out.println("2. name");
+        System.out.println("3. region");
+
+        try{
+            int option = scanner.nextInt();
+            if (option==1){
+                System.out.println("Enter id of city");
+                int id = scanner.nextInt();
+                String response;
+                response = controller.getCityByAtribute("id", String.valueOf(id));
+                System.out.println(response);
+            }
+            if (option==2){
+                System.out.println("Enter name of city");
+                String name = scanner.next();
+                String response;
+                response = controller.getCityByAtribute("name", name);
+                System.out.println(response);
+            }
+            if (option==3){
+                System.out.println("Enter region of city");
+                String region = scanner.next();
+                String response;
+                response = controller.getCityByAtribute("region", region);
+                System.out.println(response);
+            }
+        }catch (InputMismatchException e){
+            System.out.println("Input must be integer");
+            scanner.nextLine();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void getAllCitiesMenu() {
         String response = controller.getAllCities();
         System.out.println(response);
     }
 
-    public void getCityByIdMenu() {
-        System.out.println("Please enter id");
-
-        int id = scanner.nextInt();
-        String response = controller.getCity(id);
+    public void getAllICitiesMenu() {
+        String response = controller.getAllICities();
         System.out.println(response);
     }
+
 
     public void createCityMenu() {
         System.out.println("Please enter id");
@@ -76,7 +114,19 @@ public class MyApplication {
         double x = scanner.nextDouble();
         System.out.println("Please enter latitude");
         double y = scanner.nextDouble();
-        String response = controller.createCity(id, name, headcount, region, x, y);
+        System.out.println("Is it industrial city? (1-yes, 0-no)");
+        int option = scanner.nextInt();
+        String response;
+        if (option == 0) {
+            response = controller.createCity(id, name, headcount, region, x, y, "Nothing", 0);
+        }
+        else {
+            System.out.println("Please enter product");
+            String product = scanner.next();
+            System.out.println("Please enter amount in tonne");
+            int amount = scanner.nextInt();
+            response = controller.createCity(id, name, headcount, region, x, y, product, amount);
+        }
         System.out.println(response);
     }
 }

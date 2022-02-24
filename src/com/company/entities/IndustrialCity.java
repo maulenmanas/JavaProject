@@ -5,10 +5,14 @@ public class IndustrialCity extends City{
     private int amount;
     public IndustrialCity(){
         super();
+        setProduct("Nothing");
+        setAmount(0);
     }
 
     public IndustrialCity(int id, String name, int headcount, String region, double x, double y, String product, int amount) {
         super(id, name, headcount, region, x, y);
+        setProduct(product);
+        setAmount(amount);
     }
 
     public String getProduct() {return product;}
@@ -22,8 +26,10 @@ public class IndustrialCity extends City{
         return "IndustrialCity{" +
                 "id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +              //for entering of our classes
-                ", headcount='" + super.getHeadcount() + '\'' +
-                ", region=" + super.getRegion() + '\'' +
+                ", headcount=" + super.getHeadcount() + '\'' +
+                ", region='" + super.getRegion() + '\'' +
+                ", product='" + product + '\'' +
+                ", amount=" + amount +
                 '}';
     }
 }

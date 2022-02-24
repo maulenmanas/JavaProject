@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1b2002e-c0c2-4847-afcd-6434f9288c48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+    <list default="true" id="3f408ca4-286f-4949-b608-97bbd9489451" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/controllers/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controllers/CityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/CityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/interfaces/ICityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/interfaces/ICityRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,10 +26,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="25S5SAO9raytDJ8wMRuWBwXLMVa" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="25Y3QbvvKSHwCkaScDUcwyKwT4o" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,9 +35,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
@@ -70,19 +62,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1b2002e-c0c2-4847-afcd-6434f9288c48" name="Changes" comment="" />
-      <created>1645507644377</created>
+      <changelist id="3f408ca4-286f-4949-b608-97bbd9489451" name="Changes" comment="" />
+      <created>1645690183218</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1645507644377</updated>
-      <workItem from="1645507646065" duration="266000" />
-      <workItem from="1645507933517" duration="343000" />
-      <workItem from="1645515813583" duration="4905000" />
-      <workItem from="1645602933301" duration="2263000" />
-      <workItem from="1645606634352" duration="2416000" />
-      <workItem from="1645610522969" duration="1303000" />
-      <workItem from="1645626433029" duration="1383000" />
-      <workItem from="1645673577901" duration="11822000" />
+      <updated>1645690183218</updated>
+      <workItem from="1645690191810" duration="677000" />
+      <workItem from="1645690886682" duration="8892000" />
     </task>
     <servers />
   </component>
