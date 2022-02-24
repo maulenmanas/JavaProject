@@ -1,9 +1,12 @@
 package com.company.repositories;
 
+import java.awt.*;
+import java.util.*;
 import com.company.data.interfaces.IDB;
 import com.company.entities.City;
 import com.company.entities.IndustrialCity;
 import com.company.repositories.interfaces.ICityRepository;
+
 
 import java.sql.*;
 import java.util.LinkedList;
@@ -14,6 +17,44 @@ public class CityRepository implements ICityRepository {
 
     public CityRepository(IDB db) {
         this.db = db;
+    }
+
+    @Override
+    public double getDistance(String from, String to){
+        City city1 = getCityByName(from);
+        City city2 = getCityByName(to);
+        return city1.absDistance(city2);
+    }
+
+
+    @Override
+    public List<String> headCountFilter(String sign, int value){
+        List<String> names = new LinkedList<>();
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT name FROM citylist WHERE headcount " + sign + String.valueOf(value); //;"SELECT name FROM citylist WHERE headcount < 240"
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            List<City> localities = new LinkedList<>();
+            while (rs.next()) {
+                names.add(rs.getString("name"));
+            }
+            return names;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return null;
     }
 
     @Override
@@ -89,6 +130,10 @@ public class CityRepository implements ICityRepository {
             }
         }
         return null;
+    }
+    public City getCityByName(String name){
+        List <City> list = getCityByAtribute("name", name);
+        return list.get(0);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.*;
+
 import com.company.controllers.CityController;
 import com.company.entities.City;
 
@@ -24,6 +26,8 @@ public class MyApplication {
             System.out.println("2. Get city by attribute");
             System.out.println("3. Create city");
             System.out.println("4. Get all industrial cities");
+            System.out.println("5. Get Distance between 2 cities");
+            System.out.println("6. Filter by headcount");
             System.out.println("0. Exit");
             System.out.println();
             try {
@@ -37,11 +41,11 @@ public class MyApplication {
                     createCityMenu();
                 }else if (option == 4) {
                     getAllICitiesMenu();
-               /* }else if (option == 5) {
-                    getIdByName();
+                }else if (option == 5) {
+                    getDistanceMenu();
                 }else if (option == 6) {
-                    getNameById();
-                */}else {
+                    headCountFilterMenu();
+                }else {
                     break;
                 }
             } catch (InputMismatchException e) {
@@ -55,6 +59,50 @@ public class MyApplication {
             System.out.println("*************************");
 
         }
+    }
+
+    private void headCountFilterMenu() {
+        System.out.println("more or less than set value (1/2) ");
+        int filter = scanner.nextInt();
+        System.out.println("value of headcount");
+        int value = scanner.nextInt();
+        if (filter==1){
+            List<String> response;
+            response = controller.headCountFilter(">",value);
+            System.out.println(response);
+        }
+        if (filter==2){
+            List<String> response;
+            response = controller.headCountFilter("<",value);
+            System.out.println(response);
+        }
+    }
+    private void getDistanceMenu() {
+        System.out.println("Enter 1 name of City");
+        String from="";
+
+        do {
+            if(from.length() > 0){
+                System.out.println("There is no city with that name in database(try to add it first)");
+            }
+            System.out.println("Please enter departure city");
+            from = scanner.next();
+        }while(controller.getCityByAtribute("name", from).length() < 5);
+
+        System.out.println("Enter 2 name of City");
+        String to = "";
+
+        do {
+            if(to.length() > 0){
+                System.out.println("There is no city with that name in database(try to add it first)");
+            }
+            System.out.println("Please enter host city");
+            to = scanner.next();
+        }while(controller.getCityByAtribute("name", to).length() < 5);
+
+        double response;
+        response = controller.getDistance(from,to);
+        System.out.println(response);
     }
 
     /*private void getNameById() {
