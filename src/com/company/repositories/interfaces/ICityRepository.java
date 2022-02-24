@@ -8,9 +8,11 @@ import java.util.List;
 
 public interface ICityRepository {
     boolean createCity(IndustrialCity locality);
-    City getCity(int id);
-    City getCity(String name);
-    //List <Edge> ShortestPath(City a, City b);
+    List<City> getCityByAttribute(String attribute_name, String attribute);
+    int getIDbyName(String a);
+    boolean addEdge(Edge edge);
+    List<Edge> getAllEdges();
+    int ShortestPath(String a, String b);
     List<City> getAllCities();
     List<IndustrialCity> getAllICities();
 }
