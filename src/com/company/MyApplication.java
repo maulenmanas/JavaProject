@@ -37,7 +37,11 @@ public class MyApplication {
                     createCityMenu();
                 }else if (option == 4) {
                     getAllICitiesMenu();
-                } else {
+               /* }else if (option == 5) {
+                    getIdByName();
+                }else if (option == 6) {
+                    getNameById();
+                */}else {
                     break;
                 }
             } catch (InputMismatchException e) {
@@ -52,6 +56,20 @@ public class MyApplication {
 
         }
     }
+
+    /*private void getNameById() {
+        int id = scanner.nextInt();
+        String response;
+        response = controller.getNameById(id);
+        System.out.println(response);
+    }
+
+    private void getIdByName() {
+        String name = scanner.next();
+        String response;
+        response = String.valueOf(controller.getIdByName(name));
+        System.out.println(response);
+    }*/
 
     private void getCityByAtributeMenu() {
         System.out.println("Enter atribute");
@@ -82,6 +100,7 @@ public class MyApplication {
                 response = controller.getCityByAtribute("region", region);
                 System.out.println(response);
             }
+
         }catch (InputMismatchException e){
             System.out.println("Input must be integer");
             scanner.nextLine();

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f408ca4-286f-4949-b608-97bbd9489451" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/controllers/CityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controllers/CityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/CityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/CityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/interfaces/ICityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/interfaces/ICityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
