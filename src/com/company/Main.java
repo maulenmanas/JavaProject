@@ -1,10 +1,10 @@
 package com.company;
 
-import com.company.controllers.UserController;
+import com.company.controllers.CityController;
 import com.company.data.PostgresDB;
 import com.company.data.interfaces.IDB;
-import com.company.repositories.UserRepository;
-import com.company.repositories.interfaces.IUserRepository;
+import com.company.repositories.CityRepository;
+import com.company.repositories.interfaces.ICityRepository;
 
 import java.sql.*;
 
@@ -50,8 +50,8 @@ public class Main {
         // Here you specify which DB and UserRepository to use
         // And changing DB should not affect to whole code
         IDB db = new PostgresDB();
-        IUserRepository repo = new UserRepository(db);
-        UserController controller = new UserController(repo);
+        ICityRepository repo = new CityRepository(db);
+        CityController controller = new CityController(repo);
         MyApplication app = new MyApplication(controller);
         app.start();
     }

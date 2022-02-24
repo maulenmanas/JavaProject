@@ -1,15 +1,16 @@
 package com.company;
 
-import com.company.controllers.UserController;
+import com.company.controllers.CityController;
+import com.company.entities.City;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyApplication {
-    private final UserController controller;
+    private final CityController controller;
     private final Scanner scanner;
 
-    public MyApplication(UserController controller) {
+    public MyApplication(CityController controller) {
         this.controller = controller;
         scanner = new Scanner(System.in);
     }
@@ -28,11 +29,11 @@ public class MyApplication {
                 System.out.print("Enter option (1-3): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
-                    getAllUsersMenu();
+                    getAllCitiesMenu();
                 } else if (option == 2) {
-                    getUserByIdMenu();
+                    getCityByIdMenu();
                 } else if (option == 3) {
-                    createUserMenu();
+                    createCityMenu();
                 } else {
                     break;
                 }
@@ -49,29 +50,33 @@ public class MyApplication {
         }
     }
 
-    public void getAllUsersMenu() {
-        String response = controller.getAllUsers();
+    public void getAllCitiesMenu() {
+        String response = controller.getAllCities();
         System.out.println(response);
     }
 
-    public void getUserByIdMenu() {
+    public void getCityByIdMenu() {
         System.out.println("Please enter id");
 
         int id = scanner.nextInt();
-        String response = controller.getUser(id);
+        String response = controller.getCity(id);
         System.out.println(response);
     }
 
-    public void createUserMenu() {
+    public void createCityMenu() {
+        System.out.println("Please enter id");
+        int id = scanner.nextInt();
         System.out.println("Please enter name");
         String name = scanner.next();
-        System.out.println("Please enter m_amount");
-        int m_amount = Integer.parseInt(scanner.next());
-        System.out.println("Please enter w_amount");
-        int w_amount = Integer.parseInt(scanner.next());
+        System.out.println("Please enter headcount");
+        int headcount = Integer.parseInt(scanner.next());
         System.out.println("Please enter region");
         String region = scanner.next();
-        String response = controller.createUser(name, m_amount, w_amount,region);
+        System.out.println("Please enter longitude");
+        Double x = scanner.nextDouble();
+        System.out.println("Please enter latitude");
+        Double y = scanner.nextDouble();
+        String response = controller.createCity(id, name, headcount, region, x, y);
         System.out.println(response);
     }
 }
