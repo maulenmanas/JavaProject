@@ -164,4 +164,63 @@ public class CityRepository implements ICityRepository {
         }
         return null;
     }
+
+    @Override
+    public int getIdByName(String name){
+        int id=0;
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT id FROM citylist WHERE name=?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1,name);
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                id = (rs.getInt("id"));
+            }
+            return id;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return 0;
+    }
+    @Override
+    public String getNameById(int id){
+        String name ="";
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT name FROM citylist WHERE id=?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                name = (rs.getString("name"));
+            }
+            return name;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        return null;
+    }
 }

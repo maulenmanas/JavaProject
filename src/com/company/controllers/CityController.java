@@ -38,4 +38,14 @@ public class CityController {
 
         return localities.toString();
     }
+
+    public int getIdByName (String name){
+        int id = repo.getIdByName(name);
+        return id;
+    }
+
+    public String getNameById(int id) {
+        String name = repo.getNameById(id);
+        return name;
+    }
 }
