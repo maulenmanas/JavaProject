@@ -1,6 +1,7 @@
 package com.company.controllers;
 
 import com.company.entities.City;
+import com.company.entities.IndustrialCity;
 import com.company.repositories.interfaces.ICityRepository;
 
 import java.util.List;
@@ -12,9 +13,9 @@ public class CityController {
         this.repo = repo;
     }
 
-    public String createCity(int id, String name, int headcount, String region, double x, double y) {
+    public String createCity(int id, String name, int headcount, String region, double x, double y, String product, int amount) {
         //boolean male = (gender.toLowerCase().equals("male"));
-        City locality= new City(id, name, headcount, region, x, y);
+        IndustrialCity locality= new IndustrialCity(id, name, headcount, region, x, y, product, amount);
 
         boolean created = repo.createCity(locality);
 
@@ -32,4 +33,6 @@ public class CityController {
 
         return localities.toString();
     }
+
+
 }

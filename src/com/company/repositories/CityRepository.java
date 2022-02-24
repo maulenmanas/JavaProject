@@ -17,43 +17,11 @@ public class CityRepository implements ICityRepository {
     }
 
     @Override
-    public boolean createCity(City locality) {
+    public boolean createCity(IndustrialCity locality) {
         Connection con = null;                          //create variable of connection
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO citylist(id,name,headcount,region,x,y,product,amount,type) VALUES (?,?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setInt(1, locality.getId());
-            st.setString(2, locality.getName());
-            st.setInt(3, locality.getHeadcount());
-            st.setString(4,locality.getRegion());
-            st.setDouble(5, locality.getX());
-            st.setDouble(6,locality.getY());
-            st.setString(7, "Nothing");
-            st.setInt(8, 0);
-            st.setBoolean(9, false);
-            st.execute();
-            return true;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public boolean createIndustrialCity(IndustrialCity locality) {
-        Connection con = null;                          //create variable of connection
-        try {
-            con = db.getConnection();
-            String sql = "INSERT INTO citylist(id,name,headcount,region,x,y,product,amount,type) VALUES (?,?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
+            String sql = "INSERT INTO citylist(id,name,headcount,region,x,y,product,amount) VALUES (?,?,?,?,?,?,?,?)"; //sql command that create locality in our table
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, locality.getId());
             st.setString(2, locality.getName());
@@ -63,7 +31,6 @@ public class CityRepository implements ICityRepository {
             st.setDouble(6,locality.getY());
             st.setString(7, locality.getProduct());
             st.setInt(8, locality.getAmount());
-            st.setBoolean(9, true);
             st.execute();
             return true;
         } catch (SQLException throwables) {
@@ -191,7 +158,7 @@ public class CityRepository implements ICityRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,headcount,region,x,y,product,amount FROM citylist WHERE type=true";
+            String sql = "SELECT id,name,headcount,region,x,y,product,amount FROM citylist WHERE amount>0";
             Statement st = con.createStatement();
 
             ResultSet rs = st.executeQuery(sql);

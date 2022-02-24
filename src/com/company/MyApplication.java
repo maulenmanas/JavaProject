@@ -20,9 +20,9 @@ public class MyApplication {
             System.out.println();
             System.out.println("Welcome to My Application");
             System.out.println("Select option:");
-            System.out.println("1. Get all users");
-            System.out.println("2. Get user by id");
-            System.out.println("3. Create user");
+            System.out.println("1. Get all cities");
+            System.out.println("2. Get city by id");
+            System.out.println("3. Create city");
             System.out.println("0. Exit");
             System.out.println();
             try {
@@ -76,7 +76,19 @@ public class MyApplication {
         double x = scanner.nextDouble();
         System.out.println("Please enter latitude");
         double y = scanner.nextDouble();
-        String response = controller.createCity(id, name, headcount, region, x, y);
+        System.out.println("Is it industrial city? (1-yes, 0-no)");
+        int option = scanner.nextInt();
+        String response;
+        if (option == 0) {
+            response = controller.createCity(id, name, headcount, region, x, y, "Nothing", 0);
+        }
+        else {
+            System.out.println("Please enter product");
+            String product = scanner.next();
+            System.out.println("Please enter amount in tonne");
+            int amount = scanner.nextInt();
+            response = controller.createCity(id, name, headcount, region, x, y, product, amount);
+        }
         System.out.println(response);
     }
 }

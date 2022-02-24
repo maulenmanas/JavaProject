@@ -7,8 +7,7 @@ import com.company.entities.IndustrialCity;
 import java.util.List;
 
 public interface ICityRepository {
-    boolean createCity(City locality);
-    boolean createIndustrialCity(IndustrialCity locality);
+    boolean createCity(IndustrialCity locality);
     City getCity(int id);
     City getCity(String name);
     //List <Edge> ShortestPath(City a, City b);
