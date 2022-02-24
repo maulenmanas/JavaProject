@@ -59,4 +59,15 @@ public class CityController {
         int time = repo.ShortestPath(from, to);
         return time;
     }
+
+    public double getDistance(String name1, String name2) {
+        double distance = repo.getDistance(name1,name2);
+        return distance;
+    }
+
+    public List<String> headCountFilter(String sign, int value) {
+        List<String> names = repo.headCountFilter(sign,value);
+
+        return names;
+    }
 }

@@ -12,6 +12,9 @@ public interface ICityRepository {
     int getIDbyName(String a);
     boolean addEdge(Edge edge);
     List<Edge> getAllEdges();
+    double getDistance(String name1, String name2);
+    public City getCityByName(String name);
+    List<String> headCountFilter(String sign, int value);
     int ShortestPath(String a, String b);
     List<City> getAllCities();
     List<IndustrialCity> getAllICities();
