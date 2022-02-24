@@ -23,10 +23,11 @@ public class MyApplication {
             System.out.println("1. Get all cities");
             System.out.println("2. Get city by id");
             System.out.println("3. Create city");
+            System.out.println("4. Get all industrial cities");
             System.out.println("0. Exit");
             System.out.println();
             try {
-                System.out.print("Enter option (1-3): ");
+                System.out.print("Enter option (1-4): ");
                 int option = scanner.nextInt();
                 if (option == 1) {
                     getAllCitiesMenu();
@@ -34,6 +35,8 @@ public class MyApplication {
                     getCityByIdMenu();
                 } else if (option == 3) {
                     createCityMenu();
+                }else if (option == 4) {
+                    getAllICitiesMenu();
                 } else {
                     break;
                 }
@@ -52,6 +55,11 @@ public class MyApplication {
 
     public void getAllCitiesMenu() {
         String response = controller.getAllCities();
+        System.out.println(response);
+    }
+
+    public void getAllICitiesMenu() {
+        String response = controller.getAllICities();
         System.out.println(response);
     }
 

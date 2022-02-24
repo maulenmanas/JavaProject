@@ -34,5 +34,9 @@ public class CityController {
         return localities.toString();
     }
 
+    public String getAllICities() {
+        List<IndustrialCity> localities = repo.getAllICities();
 
+        return localities.toString();
+    }
 }

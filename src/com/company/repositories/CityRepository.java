@@ -18,6 +18,7 @@ public class CityRepository implements ICityRepository {
 
     @Override
     public boolean createCity(IndustrialCity locality) {
+        System.out.println(locality.toString());
         Connection con = null;                          //create variable of connection
         try {
             con = db.getConnection();
