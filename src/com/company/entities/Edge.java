@@ -8,18 +8,18 @@ public class Edge {
 
     }
 
-    public Edge(int a, int b, int time, String transport){
-        setaID(a);
-        setbID(b);
+    public Edge(int a, int b, String transport, int time){
+        setAID(a);
+        setBID(b);
         setTime(time);
         setTransport(transport);
     }
 
-    public void setaID(int aID) {this.aID = aID;}
-    public int getaID() {return aID;}
+    public void setAID(int aID) {this.aID = aID;}
+    public int getAID() {return aID;}
 
-    public void setbID(int bID) {this.bID = bID;}
-    public int getbID() {return bID;}
+    public void setBID(int bID) {this.bID = bID;}
+    public int getBID() {return bID;}
 
     public void setTime(int time) {this.time = time;}
     public int getTime() {return time;}

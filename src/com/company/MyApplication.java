@@ -6,6 +6,7 @@ import com.company.controllers.CityController;
 import com.company.entities.City;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyApplication {
@@ -26,24 +27,49 @@ public class MyApplication {
             System.out.println("2. Get city by attribute");
             System.out.println("3. Create city");
             System.out.println("4. Get all industrial cities");
+<<<<<<< HEAD
             System.out.println("5. Get Distance between 2 cities");
             System.out.println("6. Filter by headcount");
             System.out.println("0. Exit");
             System.out.println();
             try {
                 System.out.print("Enter option (1-4): ");
+=======
+            System.out.println("5. Add edge");
+            System.out.println("6. Shortest Path between to cities");
+            System.out.println("7. Get Distance between two cities");
+            System.out.println("8. Filter by headcount");
+            System.out.println("0. Exit");
+            System.out.println();
+            try {
+                System.out.print("Enter option (1-8): ");
+>>>>>>> Manas
                 int option = scanner.nextInt();
                 if (option == 1) {
                     getAllCitiesMenu();
                 } else if (option == 2) {
+<<<<<<< HEAD
                     getCityByAtributeMenu();
+=======
+                    getCityByAttributeMenu();
+>>>>>>> Manas
                 } else if (option == 3) {
                     createCityMenu();
                 }else if (option == 4) {
                     getAllICitiesMenu();
+<<<<<<< HEAD
                 }else if (option == 5) {
                     getDistanceMenu();
                 }else if (option == 6) {
+=======
+                } else if (option == 5) {
+                    AddEdgeMenu();
+                }else if (option == 6) {
+                    ShortestPathMenu();
+                } else if (option == 7) {
+                    getDistanceMenu();
+                } else if (option == 8) {
+>>>>>>> Manas
                     headCountFilterMenu();
                 }else {
                     break;
@@ -61,6 +87,28 @@ public class MyApplication {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void ShortestPathMenu(){
+        String from = "", to = "";
+        do {
+            if(from.length() > 0){
+                System.out.println("There is no city with that name in database(try to add it first)");
+            }
+            System.out.println("Please enter departure city");
+            from = scanner.next();
+        }while(controller.getCityByAttribute("name", from).length() < 5);
+        do {
+            if(to.length() > 0){
+                System.out.println("There is no city with that name in database(try to add it first)");
+            }
+            System.out.println("Please enter host city");
+            to = scanner.next();
+        }while(controller.getCityByAttribute("name", to).length() < 5);
+        System.out.println(controller.ShortestPath(from, to));
+    }
+
+>>>>>>> Manas
     private void headCountFilterMenu() {
         System.out.println("more or less than set value (1/2) ");
         int filter = scanner.nextInt();
@@ -87,7 +135,11 @@ public class MyApplication {
             }
             System.out.println("Please enter departure city");
             from = scanner.next();
+<<<<<<< HEAD
         }while(controller.getCityByAtribute("name", from).length() < 5);
+=======
+        }while(controller.getCityByAttribute("name", from).length() < 5);
+>>>>>>> Manas
 
         System.out.println("Enter 2 name of City");
         String to = "";
@@ -98,13 +150,18 @@ public class MyApplication {
             }
             System.out.println("Please enter host city");
             to = scanner.next();
+<<<<<<< HEAD
         }while(controller.getCityByAtribute("name", to).length() < 5);
+=======
+        }while(controller.getCityByAttribute("name", to).length() < 5);
+>>>>>>> Manas
 
         double response;
         response = controller.getDistance(from,to);
         System.out.println(response);
     }
 
+<<<<<<< HEAD
     /*private void getNameById() {
         int id = scanner.nextInt();
         String response;
@@ -120,6 +177,9 @@ public class MyApplication {
     }*/
 
     private void getCityByAtributeMenu() {
+=======
+    public void getCityByAttributeMenu() {
+>>>>>>> Manas
         System.out.println("Enter atribute");
         System.out.println("1. id");
         System.out.println("2. name");
@@ -131,24 +191,38 @@ public class MyApplication {
                 System.out.println("Enter id of city");
                 int id = scanner.nextInt();
                 String response;
+<<<<<<< HEAD
                 response = controller.getCityByAtribute("id", String.valueOf(id));
+=======
+                response = controller.getCityByAttribute("id", String.valueOf(id));
+>>>>>>> Manas
                 System.out.println(response);
             }
             if (option==2){
                 System.out.println("Enter name of city");
                 String name = scanner.next();
                 String response;
+<<<<<<< HEAD
                 response = controller.getCityByAtribute("name", name);
+=======
+                response = controller.getCityByAttribute("name", name);
+>>>>>>> Manas
                 System.out.println(response);
             }
             if (option==3){
                 System.out.println("Enter region of city");
                 String region = scanner.next();
                 String response;
+<<<<<<< HEAD
                 response = controller.getCityByAtribute("region", region);
                 System.out.println(response);
             }
 
+=======
+                response = controller.getCityByAttribute("region", region);
+                System.out.println(response);
+            }
+>>>>>>> Manas
         }catch (InputMismatchException e){
             System.out.println("Input must be integer");
             scanner.nextLine();
@@ -157,6 +231,34 @@ public class MyApplication {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void AddEdgeMenu(){
+        String from = "", to = "", name = "";
+        do {
+            if(from.length() > 0){
+                System.out.println("There is no city with that name in database(try to add it first)");
+            }
+            System.out.println("Please enter departure city");
+            from = scanner.next();
+        }while(controller.getCityByAttribute("name", from).length() < 5);
+        do {
+            if(to.length() > 0){
+                System.out.println("There is no city with that name in database(try to add it first)");
+            }
+            System.out.println("Please enter host city");
+            to = scanner.next();
+        }while(controller.getCityByAttribute("name", to).length() < 5);
+        do{
+            System.out.println("Please enter transport name(car, train, plane)");
+            name = scanner.next();
+        }while(!name.equals("car") && !name.equals("train") && !name.equals("plane"));
+        System.out.println("Please enter trip duration");
+        int time = scanner.nextInt();
+        System.out.println(controller.addEdge(controller.getIDbyName(from), controller.getIDbyName(to), name, time));
+    }
+
+>>>>>>> Manas
     public void getAllCitiesMenu() {
         String response = controller.getAllCities();
         System.out.println(response);
